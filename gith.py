@@ -1,5 +1,5 @@
 #!/usr/bin/env python2.6
-"""Helper for git stat/diff in git checkouts with BBx files"""
+"""Helper for using git in a subversion checkout (unable to use git-svn on our AIX box)"""
 
 import os, sys, re, subprocess
 from optparse import OptionParser
@@ -10,7 +10,6 @@ PATHS = {'cgi-bin': 'cgi-bin/pgms/'
 
 REGX = re.compile("\w+\.lst")
 CMDS = {'s': 'status', 'd': 'diff', 'c': 'commit'}
-#CMDS = ['stat','diff','commit']
 
 
 def upmaster():
@@ -30,7 +29,7 @@ def upmaster():
 
 
 class GitHelper(object):
-    """Help git with BBx files"""
+    """Help git with svn and BBx files"""
 
     def __init__(self, cmd=None, debug=False):
         """Take an incoming command if we have one"""
